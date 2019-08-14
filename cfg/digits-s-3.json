@@ -1,0 +1,12 @@
+{
+  "MT": {
+    "DATA": "datasets/MNIST/mnist.pkl",
+    "SRC-N": 2000,
+    "TGT-N": 30
+  },
+  "US": {
+    "DATA": "datasets/USPS/usps.pkl",
+    "SRC-N": 1800,
+    "TGT-N": 30
+  }
+}

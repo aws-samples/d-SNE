@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+python main_ssda.py --cfg cfg/visda17.json --method mtd --src S --tgt R --bb resnet --nlayers 152 --bs 24 --resize 256 --size 224 --random-crop --random-color --model-path DSNET/resnet152v2-acc=80.66.params --lr 0.001 --end-epoch 1 --log-itv 10 --alpha 0.25 --beta 50 --hybridize --fn --rampup-epoch 0 --postfix a0.25-b50-0
+# MTD2 (Add pseudo labeling)
+python main_ssda.py --method mtd2 --cfg cfg/visda17.json --src S --tgt R --bb resnet --nlayers 152 --bs 24 --resize 256 --size 224 --random-crop --random-color --lr 0.001 --end-epoch 150 --log-itv 200 --beta 50 --model-path DSNET/resnet152v2-acc=80.66.params --hybridize --postfix test1

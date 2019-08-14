@@ -1,0 +1,17 @@
+{
+  "A": {
+    "DATA": "datasets/Office31/amazon/images",
+    "SRC-N": 630,
+    "TGT-N": 93
+  },
+  "D": {
+    "DATA": "datasets/Office31/dslr/images",
+    "SRC-N": 248,
+    "TGT-N": 93
+  },
+  "W": {
+    "DATA": "datasets/Office31/webcam/images",
+    "SRC-N": 248,
+    "TGT-N": 93
+  }
+}
