@@ -1,6 +1,6 @@
 # Introduction
 
-Gluon implementation for ```d-SNE: Domain Adaptation using Stochastic Neighbourhood Embedding```. This paper was presented at CVPR 2019 and can be found [here](https://arxiv.org/abs/1905.12775). $d$-SNE aims to perform domain adaptation by aligning the source domain and target domain in a class by class fashion. $d$-SNE is a supervised learning algorithm and requires a few labeled samples from the target domain for training. The semi-supervised extension can further improve its performance by incoporating unlabeled target data. 
+Gluon implementation for ```d-SNE: Domain Adaptation using Stochastic Neighbourhood Embedding```. This paper was presented at CVPR 2019 and can be found [here](https://arxiv.org/abs/1905.12775). d-SNE aims to perform domain adaptation by aligning the source domain and target domain in a class by class fashion. d-SNE is a supervised learning algorithm and requires a few labeled samples from the target domain for training. The semi-supervised extension can further improve its performance by incoporating unlabeled target data. 
 
 ![Results](imgs/tsne-digits.png)
 
