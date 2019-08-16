@@ -6,6 +6,7 @@ import numpy as np
 
 from mxnet.gluon.loss import Loss
 from mxnet.gluon import HybridBlock
+import mxnet.ndarray as F
 
 
 class ContrastiveLoss(Loss):
@@ -77,6 +78,23 @@ class dSNELoss(Loss):
         return loss
 
 
+class AngularLinear(HybridBlock):
+    def __init__(self, units, flatten=True, dtype='float32', weight_initializer=None, in_uints=256, **kwargs):
+        super(AngularLinear, self).__init__(**kwargs)
+        self._flatten = flatten
+        with self.name_scope():
+            self._units = units
+            self.weight = self.params.get(name='weight', shape=(self._units, in_uints), init=weight_initializer,
+                                          dtype=dtype, allow_deferred_init=True)
+
+    def hybrid_forward(self, F, x, weight):
+        x_norm = F.L2Normalization(x, mode='instance', name='x_n')
+        w_norm = F.L2Normalization(weight, mode='instance', name='w_n')
+        cos_theta = F.FullyConnected(x_norm, w_norm, no_bias=True, num_hidden=self._units, name='cos_theta')
+        cos_theta = F.clip(cos_theta, a_min=-1, a_max=1)
+        return cos_theta
+
+
 class SoftmaxL2Loss(Loss):
     """
     Softmax L2 Loss from the Mean teachers are better role models
@@ -91,3 +109,29 @@ class SoftmaxL2Loss(Loss):
         loss = F.square(input_softmax - target_softmax)
 
         return F.mean(loss, axis=self._batch_axis, exclude=True)
+
+
+class L2Normalization(HybridBlock):
+    """Applies L2 Normalization to input.
+    Parameters
+    ----------
+    mode : str
+        Mode of normalization.
+        See :func:`~mxnet.ndarray.L2Normalization` for available choices.
+    Inputs:
+        - **data**: input tensor with arbitrary shape.
+    Outputs:
+        - **out**: output tensor with the same shape as `data`.
+    """
+
+    def __init__(self, mode, **kwargs):
+        self._mode = mode
+        super(L2Normalization, self).__init__(**kwargs)
+
+    def hybrid_forward(self, F, x):
+        return F.L2Normalization(x, mode=self._mode, name='l2_norm')
+
+    def __repr__(self):
+        s = '{name}({_mode})'
+        return s.format(name=self.__class__.__name__,
+                        **self.__dict__)
