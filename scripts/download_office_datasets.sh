@@ -6,5 +6,6 @@ if [ ! -d "Office31" ]; then
     mkdir "Office31"
 fi
 
-wget https://s3-us-west-2.amazonaws.com/domain-adaptation-exps/datasets/Office31/Office31.zip -O Office31/Office31.zip
-unzip Office31/Office31.zip
+wget --no-check-certificate -O tmp.tar.gz "https://drive.google.com/uc?export=download&id=0B4IapRTv9pJ1WGZVd1VDMmhwdlE"
+tar -xvzf tmp.tar.gz -C Office31
+rm tmp.tar.gz
