@@ -20,11 +20,13 @@ $ pip install mxnet-cu90 # for CUDA 9.0
 ```
 
 # Datasets and abbreviations:
-| Experiments | Datasets | Download|
-| ----------- |:--------:| --------|
-| Digits      | MNIST(MT), MNISTM(MM), SVHN(SN), and USPS(US)| ```sh scripts/download_digits_datasets.sh```|
-| Office-31   | AMAZON (A), DSLR (D), and WEBCAM (W)         | ```sh scripts/download_office_datasets.sh```|
-| VisDA       | Synthetic (S) and Real (R)                   | ```sh scripts/download_visda_datasets.sh```|
+| Experiments | Datasets |
+| ----------- |:--------:|
+| Digits      | MNIST(MT), MNISTM(MM), SVHN(SN), and USPS(US)|
+| Office-31   | AMAZON (A), DSLR (D), and WEBCAM (W)         |
+| VisDA       | Synthetic (S) and Real (R)                   |
+
+
 
 # Download the pre-trained model
 ```bash
@@ -33,12 +35,7 @@ $ sh scripts/download_pretrained_models.sh
 
 # Experiments
 ## Download datasets
-Due to licensing issues, we won't be able to host the datasets. The current patch will enable you to download and use the Office dataset from the original source. We are working on patching the other datasets.
-```bash
-$ sh scripts/download_digits_datasets.sh
-$ sh scripts/download_office_datasets.sh
-$ sh scripts/download_visda_datasets.sh
-```
+Due to licensing issues, we won't be able to host the datasets. The current patch will enable you to download and use the Office dataset from the original source. An example for packing MNIST is located at ```tools/gen_dataset.py```.
 
 ## Few Shot Supervised Domain Adaptation
 ### Digits Experiments: MT -> MM
