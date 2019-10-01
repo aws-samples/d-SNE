@@ -2,6 +2,12 @@
 
 Gluon implementation for ```d-SNE: Domain Adaptation using Stochastic Neighbourhood Embedding```. This paper was presented at CVPR 2019 and can be found [here](https://arxiv.org/abs/1905.12775). d-SNE aims to perform domain adaptation by aligning the source domain and target domain in a class by class fashion. d-SNE is a supervised learning algorithm and requires a few labeled samples from the target domain for training. The semi-supervised extension can further improve its performance by incoporating unlabeled target data. 
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/d-sne-domain-adaptation-using-stochastic/domain-adaptation-on-office-31)](https://paperswithcode.com/sota/domain-adaptation-on-office-31?p=d-sne-domain-adaptation-using-stochastic)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/d-sne-domain-adaptation-using-stochastic/domain-adaptation-on-svnh-to-mnist)](https://paperswithcode.com/sota/domain-adaptation-on-svnh-to-mnist?p=d-sne-domain-adaptation-using-stochastic)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/d-sne-domain-adaptation-using-stochastic/domain-adaptation-on-visda2017)](https://paperswithcode.com/sota/domain-adaptation-on-visda2017?p=d-sne-domain-adaptation-using-stochastic)
+
 ![Results](imgs/tsne-digits.png)
 
 # Dependencies
@@ -14,7 +20,6 @@ $ pip install mxnet-cu90 # for CUDA 9.0
 ```
 
 # Datasets and abbreviations:
-
 | Experiments | Datasets | Download|
 | ----------- |:--------:| --------|
 | Digits      | MNIST(MT), MNISTM(MM), SVHN(SN), and USPS(US)| ```sh scripts/download_digits_datasets.sh```|
@@ -28,6 +33,7 @@ $ sh scripts/download_pretrained_models.sh
 
 # Experiments
 ## Download datasets
+Due to licensing issues, we won't be able to host the datasets. The current patch will enable you to download and use the Office dataset from the original source. We are working on patching the other datasets.
 ```bash
 $ sh scripts/download_digits_datasets.sh
 $ sh scripts/download_office_datasets.sh
